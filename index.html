@@ -43,6 +43,11 @@
       margin-bottom: 2rem;
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease;
+      transition: transform 0.3s ease;
+    }
+    .project:hover {
+      transform: translateY(-4px);
     }
     .project h3 {
       margin-top: 0;
@@ -52,6 +57,16 @@
       padding: 2rem;
       background-color: #1f2937;
       color: white;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    img {
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      margin: 1rem 0;
+      width: 100%;
     }
   </style>
 </head>
@@ -72,12 +87,13 @@
       <h2>📊 Featured Project</h2>
       <div class="project">
         <h3>🍕 Pizza Sales Analysis (SQL + Power BI)</h3>
+        <img src="assets/pizza_dashboard.gif" alt="Pizza Dashboard Demo GIF">
+        <img src="assets/pizza_screenshot.png" alt="Pizza Dashboard Screenshot">
         <p>
           Analyzed pizza shop sales using SQL and Power BI to extract KPIs, ordering trends, and product performance.
         </p>
         <a href="https://github.com/Niks23c/Pizza-Sales-Analysis-SQL-PowerBI-" target="_blank">View Project on GitHub →</a>
       </div>
-      <!-- Add more projects later -->
     </section>
 
     <section id="resume">
