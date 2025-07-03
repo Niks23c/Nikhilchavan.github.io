@@ -68,18 +68,33 @@
     ul {
       padding-left: 1.2rem;
     }
-  </style>
+</style>
+<style>
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+</style>
 </head>
 <body>
-<header>
-  <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-    <img src="assets/profile.jpg" alt="Profile Photo" style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid #facc15;" />
-    <div>
-      <h1 style="margin: 0;">Hello there! I'm Nikhil Chavan 👋</h1>
-      <p style="margin: 0;">Data Analyst skilled in SQL, Power BI, Python, and Data Storytelling</p>
+
+<header style="position: relative; overflow: hidden;">
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+              background: linear-gradient(-45deg, #facc15, #60a5fa, #f472b6, #34d399);
+              background-size: 600% 600%;
+              animation: gradientBG 12s ease infinite;
+              z-index: 0;"></div>
+
+  <div style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; padding: 3rem 1rem;">
+    <img src="assets/profile.jpg" alt="Profile Photo" style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid white;" />
+    <div style="text-align: center;">
+      <h1 style="margin: 0; color: white;">Hello there! I'm Nikhil Chavan 👋</h1>
+      <p style="margin: 0; color: white;">Data Analyst skilled in SQL, Power BI, Python, and Data Storytelling</p>
     </div>
   </div>
 </header>
+
 
   <nav>
     <a href="index.html">Home</a>
