@@ -34,22 +34,25 @@
     }
     .container {
       padding: 2rem;
-      max-width: 1000px;
+      max-width: 1200px;
       margin: auto;
     }
-    .project {
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 2rem;
+    }
+    .project-card {
       background: white;
       padding: 1.5rem;
-      margin-bottom: 2rem;
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      animation: fadeIn 1s ease;
       transition: transform 0.3s ease;
     }
-    .project:hover {
+    .project-card:hover {
       transform: translateY(-4px);
     }
-    .project h3 {
+    .project-card h3 {
       margin-top: 0;
     }
     footer {
@@ -58,47 +61,64 @@
       background-color: #1f2937;
       color: white;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
     img {
       border-radius: 8px;
       box-shadow: 0 0 8px rgba(0,0,0,0.1);
       margin: 1rem 0;
       width: 100%;
     }
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 10px 20px;
+      background-color: #1f2937;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
   </style>
 </head>
 <body>
   <header>
-  <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-    <img src="assets/profile.jpg" alt="Profile Photo" style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid #facc15;" />
-    <div>
-      <h1 style="margin: 0;">Nikhil Chavan</h1>
-      <p style="margin: 0;">Data Analyst | SQL • Power BI • Excel • Python</p>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+      <img src="assets/profile.jpg" alt="Profile Photo" style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid #facc15;" />
+      <div>
+        <h1 style="margin: 0;">Nikhil Chavan</h1>
+        <p style="margin: 0;">Data Analyst | SQL • Power BI • Excel • Python</p>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
   <nav>
     <a href="#projects">Projects</a>
     <a href="#resume">Resume</a>
     <a href="#contact">Contact</a>
   </nav>
-<div class="project">
-  <h3>🍕 Pizza Sales Analysis (SQL + Power BI)</h3>
 
-  <!-- Correct image and GIF filenames -->
-  <img src="assets/PIZZA.gif" alt="Pizza Dashboard Demo GIF">
-  <img src="assets/pizza1.png" alt="Pizza Screenshot 1">
-  <img src="assets/Pizza2.png" alt="Pizza Screenshot 2">
+  <div class="container">
+    <section id="projects">
+      <h2 style="text-align:center;">💼 Projects</h2>
+      <div class="project-grid">
+        <!-- Pizza Project Card -->
+        <div class="project-card">
+          <h3>🍕 Pizza Sales Analysis</h3>
+          <img src="assets/PIZZA.gif" alt="Pizza Dashboard GIF">
+          <p>
+            Analyzed pizza shop sales using SQL and Power BI to extract KPIs, ordering trends, and product performance.
+          </p>
+          <a href="pizza.html" class="btn">🔎 View Full Project</a>
+        </div>
 
-  <p>
-    Analyzed pizza shop sales using SQL and Power BI to extract KPIs, ordering trends, and product performance.
-  </p>
-  <a href="https://github.com/Niks23c/Pizza-Sales-Analysis-SQL-PowerBI-" target="_blank">View Project on GitHub →</a>
-</div>
+        <!-- Coffee Project Card -->
+        <div class="project-card">
+          <h3>☕ Coffee Shop Sales Analysis</h3>
+          <img src="assets/Coffeeshop.gif" alt="Coffee Shop Dashboard GIF">
+          <p>
+            Created a Power BI dashboard analyzing sales data of a coffee shop across time, products, and store locations with SQL-based KPIs.
+          </p>
+          <a href="coffee.html" class="btn">🔎 View Full Project</a>
+        </div>
+      </div>
     </section>
 
     <section id="resume">
