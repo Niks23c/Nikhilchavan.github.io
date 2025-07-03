@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nikhil Chavan | Data Analyst Portfolio</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
-      line-height: 1.6;
-    }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(120deg, #f3f4f6, #e5e7eb);
+  color: #333;
+  line-height: 1.6;
+}
     header {
       background-color: #1f2937;
       color: white;
@@ -75,26 +75,44 @@
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+@keyframes pulseBorder {
+  0% { box-shadow: 0 0 0px rgba(255, 255, 255, 0.5); }
+  50% { box-shadow: 0 0 12px rgba(255, 255, 255, 0.9); }
+  100% { box-shadow: 0 0 0px rgba(255, 255, 255, 0.5); }
+}
+
+@keyframes fadeInPop {
+  0% { transform: scale(0.9); opacity: 0; filter: blur(3px); }
+  100% { transform: scale(1); opacity: 1; filter: blur(0); }
+}
 </style>
 </head>
 <body>
 
 <header style="position: relative; overflow: hidden;">
+  <!-- Background Gradient -->
   <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;
               background: linear-gradient(-45deg, #facc15, #60a5fa, #f472b6, #34d399);
               background-size: 600% 600%;
               animation: gradientBG 12s ease infinite;
               z-index: 0;"></div>
 
+  <!-- Content Layer -->
   <div style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; padding: 3rem 1rem;">
-    <img src="assets/profile.jpg" alt="Profile Photo" style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid white;" />
-    <div style="text-align: center;">
+    <img src="assets/profile.jpg" alt="Profile Photo" style="
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid white;
+      animation: pulseBorder 3s ease-in-out infinite, fadeInPop 1.2s ease-in-out forwards;
+    " />
+    <div style="text-align: center; animation: fadeInPop 1.5s ease-in-out forwards;">
       <h1 style="margin: 0; color: white;">Hello there! I'm Nikhil Chavan 👋</h1>
       <p style="margin: 0; color: white;">Data Analyst skilled in SQL, Power BI, Python, and Data Storytelling</p>
     </div>
   </div>
 </header>
-
 
   <nav>
     <a href="index.html">Home</a>
