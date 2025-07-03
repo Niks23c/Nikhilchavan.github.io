@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Nikhil Chavan</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #1f2937;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    nav {
+      text-align: center;
+      background: #111827;
+      padding: 1rem;
+    }
+    nav a {
+      color: #d1d5db;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover {
+      color: #facc15;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    .project-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+    .project-card img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
+    }
+    .project-card h3 {
+      margin-top: 0;
+      color: #1f2937;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 10px 20px;
+      background-color: #1f2937;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📁 My Projects</h1>
+    <p>A collection of data analysis projects using Power BI, SQL, and Python</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="container">
+    <div class="project-grid">
+
+      <!-- Pizza Project -->
+      <div class="project-card">
+        <img src="assets/Pizza.gif" alt="Pizza Sales Project GIF">
+        <h3>🍕 Pizza Sales Analysis</h3>
+        <p>Power BI dashboard exploring pizza orders, revenue, and top-selling products using SQL.</p>
+        <a href="pizza.html" class="btn">View Project</a>
+      </div>
+
+      <!-- Coffee Project -->
+      <div class="project-card">
+        <img src="assets/Coffeeshop.gif" alt="Coffee Shop Project GIF">
+        <h3>☕ Coffee Shop Sales Analysis</h3>
+        <p>SQL and Power BI dashboard showing KPIs, growth, and customer trends in a coffee shop.</p>
+        <a href="coffee.html" class="btn">View Project</a>
+      </div>
+
+      <!-- Add more project cards below as needed -->
+
+    </div>
+  </div>
+
+</body>
+</html>
