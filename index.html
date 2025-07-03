@@ -11,17 +11,18 @@
       padding: 0;
       background-color: #f4f4f4;
       color: #333;
+      line-height: 1.6;
     }
     header {
       background-color: #1f2937;
       color: white;
-      padding: 2rem;
+      padding: 3rem 1rem;
       text-align: center;
     }
     nav {
-      text-align: center;
       background: #111827;
       padding: 1rem;
+      text-align: center;
     }
     nav a {
       color: #d1d5db;
@@ -33,39 +34,21 @@
       color: #facc15;
     }
     .container {
-      padding: 2rem;
-      max-width: 1200px;
+      max-width: 1000px;
       margin: auto;
-    }
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-      gap: 2rem;
-    }
-    .project-card {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-4px);
-    }
-    .project-card h3 {
-      margin-top: 0;
-    }
-    footer {
-      text-align: center;
       padding: 2rem;
-      background-color: #1f2937;
-      color: white;
     }
-    img {
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-      margin: 1rem 0;
+    section {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      color: #1f2937;
+    }
+    .project-card img {
       width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
     }
     .btn {
       display: inline-block;
@@ -76,60 +59,75 @@
       text-decoration: none;
       border-radius: 5px;
     }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #1f2937;
+      color: white;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-      <img src="assets/profile.jpg" alt="Profile Photo" style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid #facc15;" />
-      <div>
-        <h1 style="margin: 0;">Nikhil Chavan</h1>
-        <p style="margin: 0;">Data Analyst | SQL • Power BI • Excel • Python</p>
-      </div>
+<header>
+  <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+    <img src="assets/profile.jpg" alt="Profile Photo" style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid #facc15;" />
+    <div>
+      <h1 style="margin: 0;">Hello there! I'm Nikhil Chavan 👋</h1>
+      <p style="margin: 0;">Data Analyst skilled in SQL, Power BI, Python, and Data Storytelling</p>
     </div>
-  </header>
+  </div>
+</header>
 
   <nav>
+    <a href="index.html">Home</a>
     <a href="projects.html">Projects</a>
     <a href="#resume">Resume</a>
     <a href="#contact">Contact</a>
   </nav>
 
   <div class="container">
-    <section id="projects">
-      <h2 style="text-align:center;">💼 Projects</h2>
-      <div class="project-grid">
-        <!-- Pizza Project Card -->
-        <div class="project-card">
-          <h3>🍕 Pizza Sales Analysis</h3>
-          <img src="assets/Pizza.gif" alt="Pizza Dashboard GIF">
-          <p>
-            Analyzed pizza shop sales using SQL and Power BI to extract KPIs, ordering trends, and product performance.
-          </p>
-          <a href="pizza.html" class="btn">🔎 View Full Project</a>
-        </div>
 
-        <!-- Coffee Project Card -->
-        <div class="project-card">
-          <h3>☕ Coffee Shop Sales Analysis</h3>
-          <img src="assets/Coffeeshop.gif" alt="Coffee Shop Dashboard GIF">
-          <p>
-            Created a Power BI dashboard analyzing sales data of a coffee shop across time, products, and store locations with SQL-based KPIs.
-          </p>
-          <a href="coffee.html" class="btn">🔎 View Full Project</a>
-        </div>
+    <!-- Achievements Section -->
+    <section id="achievements">
+      <h2>🏆 Achievements</h2>
+      <ul>
+        <li>
+          <strong>Data Science Bootcamp</strong> – Odinschool (2025)<br/>
+          Certificate ID: ODIN1003177<br/>
+          <em>Covered:</em> SQL, Power BI, Python, Statistics, ML basics<br/>
+          <img src="assets/odin_certificate.jpg" alt="Odinschool Certificate" style="max-width: 400px;">
+        </li>
+        <li>
+          <strong>SQL (5-Star Badge)</strong> – HackerRank (2025)<br/>
+          Recognized for SQL proficiency with a 5-star badge<br/>
+          <a href="https://www.hackerrank.com/profile/nikhilcaptain4" target="_blank">🔗 View Badge on HackerRank</a><br/>
+          <img src="assets/sql_badge.png" alt="HackerRank SQL Badge" style="max-width: 300px;">
+        </li>
+      </ul>
+    </section>
+
+    <!-- Featured Project Section -->
+    <section id="featured">
+      <h2>🚀 Featured Project</h2>
+      <div class="project-card">
+        <h3>☕ Coffee Shop Sales Analysis</h3>
+        <img src="assets/Coffeeshop.gif" alt="Coffee Shop Dashboard GIF">
+        <p>This dashboard analyzes sales trends, store performance, and product popularity across time for a fictional coffee shop using Power BI and SQL.</p>
+        <a href="coffee.html" class="btn">🔍 View Project</a>
+        <a href="projects.html" class="btn">📁 View All Projects</a>
       </div>
     </section>
 
+    <!-- Resume Section -->
     <section id="resume">
       <h2>📄 Resume</h2>
-      <p>
-        <a href="assets/Nikhil_Resume_2025.pdf" target="_blank">
-          📥 Download My Resume
-        </a>
-      </p>
+      <p><a href="assets/Nikhil_Resume_2025.pdf" target="_blank" class="btn">📥 Download My Resume</a></p>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact">
       <h2>📬 Contact</h2>
       <ul>
