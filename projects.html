@@ -153,8 +153,34 @@ body::after {
   0% { transform: translateY(0px); }
   100% { transform: translateY(-100px); }
 }
+.nav {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+}
+
+.nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background-color: #ffda77;
+  color: #000;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.nav a:hover {
+  background-color: #ffe8b2;
+}
 
   </style>
+  <!-- Font Awesome for Home Icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 
 <body>
