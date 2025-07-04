@@ -1,54 +1,162 @@
-
----
-
-## 🌐 Creating Your `bank.html` Page
-
-Use this responsive HTML snippet to match your Coffee page style:
-
-```html
 <!DOCTYPE html>
 <html lang="en">
-<head>…
-  <style>…your dark theme CSS…</style>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bank Churn Analysis | Nikhil Chavan</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+      background: white;
+    }
+    h1, h2, h3 {
+      color: #1f2937;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin: 1rem 0;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 10px 20px;
+      background-color: #1f2937;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    pre {
+      background: #f0f0f0;
+      padding: 1rem;
+      overflow-x: auto;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 2rem 0;
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-  <h1>🏦 Bank Customer Churn Analysis – Power BI</h1>
-  <p>This report examines customer churn in a bank, using Power BI to model, analyze, and visualise churn-driving factors.</p>
+  <div class="container">
+    <h1>🏦 Bank Customer Churn Analysis – Power BI</h1>
+    <p>This Power BI project analyzes factors influencing customer churn in a bank and visualizes trends to support data-driven decision-making.</p>
 
-  <hr>
-<h2 style="color: #facc15;">📊 Dashboard Preview</h2>
+    <hr>
 
-<!-- GIF preview -->
-<img src="assets/BankChurn.gif" alt="Bank Churn Dashboard GIF" style="border-radius: 10px; width: 100%; margin-bottom: 1rem; box-shadow: 0 0 12px rgba(255,255,255,0.08);" />
+    <h2>🎯 Project Objective</h2>
+    <ul>
+      <li>Identify customer segments at high risk of churn</li>
+      <li>Uncover behavioral and financial patterns leading to churn</li>
+      <li>Provide actionable insights for customer retention strategies</li>
+    </ul>
 
-<!-- Screenshots (optional) -->
-<img src="assets/Bank1.png" alt="Bank Churn Screenshot 1" style="border-radius: 10px; width: 100%; margin-bottom: 1rem;" />
-<img src="assets/Bank2.png" alt="Bank Churn Screenshot 2" style="border-radius: 10px; width: 100%; margin-bottom: 1.5rem;" />
+    <h2>🔧 Tools & Technologies Used</h2>
+    <ul>
+      <li>Power BI (Desktop + Service)</li>
+      <li>DAX (for KPIs and custom calculations)</li>
+      <li>CSV dataset import & transformation</li>
+    </ul>
 
-<!-- Power BI access button -->
-<a href="https://app.powerbi.com/reportEmbed?reportId=409a0020-f3a9-418b-94db-61e464ac1bd8&appId=d22fc67a-c388-4da5-8a04-ee4d937c9785&autoAuth=true&ctid=e69af0f5-e703-4fdb-8a25-2d2a0d593c77"
-   target="_blank"
-   class="btn"
-   style="display: inline-block; background-color: #3b82f6; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; text-decoration: none; box-shadow: 0 0 10px rgba(91, 176, 255, 0.5);">
-   🔗 View Dashboard (Power BI Access Required)
-</a>
+    <hr>
 
+    <h2>🧩 Data Preparation</h2>
+    <ul>
+      <li>Cleaned columns like gender, tenure, products, balance</li>
+      <li>Converted binary columns to Yes/No</li>
+      <li>Handled missing values and formatted dates</li>
+    </ul>
 
-  <hr>
-  <h2>📈 Insights</h2>
-  <ul>
-    <li>Churn rate high for customers with <1 product</li>
-    <li>Low tenure and low balance strongly correlated with churn</li>
-    <li>Certain regions show increased churn—opportunity for targeted retention</li>
-  </ul>
+    <hr>
 
-  <h2>📬 Contact</h2>
-  <ul>
-    <li>Email: <a href="mailto:nikhilcaptain4@gmail.com">nikhilcaptain4@gmail.com</a></li>
-    <li>LinkedIn: <a href="https://linkedin.com/in/nikhil-c-993548151" target="_blank">linkedin.com/in/nikhil-c</a></li>
-  </ul>
-  <a href="https://github.com/…/Bank-Churn-Analysis" class="btn" target="_blank">🔗 View GitHub Repo</a>
-</div>
+    <h2 style="color: #facc15;">📊 Dashboard Preview</h2>
+    <p style="color: #ccc;">
+      Explore churn metrics and insights using filters by tenure, geography, products, credit score, and more.
+    </p>
+
+    <img src="assets/BankChurn.gif" alt="Bank Churn Dashboard GIF" />
+    <img src="assets/Bank1.png" alt="Bank Screenshot 1" />
+    <img src="assets/Bank2.png" alt="Bank Screenshot 2" />
+
+    <a href="https://app.powerbi.com/reportEmbed?reportId=409a0020-f3a9-418b-94db-61e464ac1bd8&appId=d22fc67a-c388-4da5-8a04-ee4d937c9785&autoAuth=true&ctid=e69af0f5-e703-4fdb-8a25-2d2a0d593c77"
+       target="_blank"
+       class="btn"
+       style="display: inline-block; background-color: #3b82f6; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; text-decoration: none; box-shadow: 0 0 10px rgba(91, 176, 255, 0.5);">
+       🔗 View Dashboard (Power BI Access Required)
+    </a>
+
+    <hr>
+
+    <h2>📊 Key Metrics & DAX Measures</h2>
+    <ul>
+      <li>Total Customers</li>
+      <li>Total Churned</li>
+      <li>Churn Rate (%)</li>
+      <li>Average Balance</li>
+    </ul>
+
+    <pre><code>-- Churn Rate Calculation
+CustomerChurn_rate = 
+DIVIDE(
+  COUNTROWS(FILTER(Customers, Customers[Churn] = "Yes")),
+  COUNTROWS(Customers),
+  0
+)</code></pre>
+
+    <hr>
+
+    <h2>📈 Dashboard Features</h2>
+    <ul>
+      <li>Drill-through by tenure, geography, products, and credit score</li>
+      <li>Slicer-based dynamic filters</li>
+      <li>Segment-wise churn visualizations</li>
+      <li>Modern theme and branded tooltips</li>
+    </ul>
+
+    <hr>
+
+    <h2>💡 Key Insights</h2>
+    <ul>
+      <li>Churn rate is highest among customers with fewer products</li>
+      <li>Low tenure and low balance customers are most likely to churn</li>
+      <li>Specific geographic regions show increased churn risks</li>
+      <li>Clear segmentation allows targeted customer retention strategies</li>
+    </ul>
+
+    <hr>
+
+    <h2>📬 Contact</h2>
+    <ul>
+      <li><strong>Name:</strong> Nikhil Chavan</li>
+      <li><strong>Email:</strong> <a href="mailto:nikhilcaptain4@gmail.com">nikhilcaptain4@gmail.com</a></li>
+      <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/nikhil-c-993548151" target="_blank">linkedin.com/in/nikhil-c</a></li>
+    </ul>
+
+    <a href="https://github.com/Niks23c/Bank-Churn-Analysis" target="_blank" class="btn">🔗 View GitHub Repository</a>
+  </div>
 </body>
 </html>
