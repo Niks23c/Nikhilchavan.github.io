@@ -41,11 +41,13 @@
     .btn {
       display: inline-block;
       margin-top: 1rem;
-      padding: 10px 20px;
+      padding: 0.75rem 1.5rem;
       background-color: #1f2937;
       color: white;
+      font-weight: 600;
+      border-radius: 8px;
       text-decoration: none;
-      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(91, 176, 255, 0.5);
     }
     pre {
       background: #f0f0f0;
@@ -59,108 +61,85 @@
       border-top: 1px solid #ccc;
       margin: 2rem 0;
     }
-    .report-wrapper iframe {
-  border-radius: 12px;
-  box-shadow: 0 0 16px rgba(255, 255, 255, 0.08);
-  margin-top: 1.5rem;
-}
-
   </style>
 </head>
 <body>
   <div class="container">
     <h1>☕ Coffee Shop Sales Analysis – SQL + Power BI</h1>
-    <p>This project showcases a complete sales analysis for a fictional coffee shop using Power BI and SQL, focused on deriving KPIs, identifying trends, and providing actionable business insights.</p>
+    <p>This project analyzes the daily and product-level performance of a coffee shop using Power BI and SQL. The analysis uncovers trends in sales, top-performing products, and customer behavior, providing actionable business insights.</p>
 
     <hr>
 
     <h2>📌 Project Objective</h2>
     <ul>
-      <li>Total sales, orders, and quantity sold</li>
-      <li>Monthly growth comparisons (MoM % changes)</li>
-      <li>Best-performing products, categories, and store locations</li>
-      <li>Sales by day of the week, hour, and calendar date</li>
+      <li>Track revenue growth and daily performance</li>
+      <li>Identify top-selling products and categories</li>
+      <li>Analyze product-wise profit and quantity sold</li>
+      <li>Support inventory and business decisions</li>
     </ul>
 
     <h2>🔧 Tools & Technologies Used</h2>
     <ul>
-      <li>Power BI – Interactive dashboarding and visuals</li>
-      <li>SQL (MySQL) – Data transformation, KPI extraction</li>
-      <li>Excel – Source data</li>
+      <li>SQL Server / MySQL</li>
+      <li>Power BI</li>
+      <li>Excel</li>
     </ul>
 
     <hr>
 
-<h2 style="color: #facc15; font-size: 1.8rem;">📊 Explore the Live Dashboard</h2>
-<p style="color: #ccc;">
-  Dive into the fully interactive Power BI report below. Click the fullscreen icon 🔳 to explore filters, KPIs, and insights in detail.
-</p>
+    <h2 style="color: #facc15; font-size: 1.8rem;">📊 Dashboard Preview</h2>
+    <img src="assets/Coffee.gif" alt="Coffee Shop Sales Dashboard GIF" />
+    <img src="assets/Coffee1.png" alt="Coffee Screenshot 1" />
+    <img src="assets/Coffee2.png" alt="Coffee Screenshot 2" />
+    <img src="assets/Coffee3.png" alt="Coffee Screenshot 3" />
 
-<h2 style="color: #facc15;">📊 Dashboard Preview</h2>
-
-<!-- GIF preview -->
-<img src="assets/Coffeeshop.gif" alt="Coffee Shop Dashboard GIF" style="border-radius: 10px; width: 100%; margin-bottom: 1rem; box-shadow: 0 0 12px rgba(255,255,255,0.08);" />
-
-<!-- Screenshots (optional) -->
-<img src="assets/Coffee1.jpg" alt="Coffee Screenshot 1" style="border-radius: 10px; width: 100%; margin-bottom: 1rem;" />
-<img src="assets/Coffee2.jpg" alt="Coffee Screenshot 2" style="border-radius: 10px; width: 100%; margin-bottom: 1rem;" />
-<img src="assets/Coffee3.jpg" alt="Coffee Screenshot 3" style="border-radius: 10px; width: 100%; margin-bottom: 1.5rem;" />
-
-<!-- Dashboard access button -->
-<a href="https://app.powerbi.com/reportEmbed?reportId=fdf6203e-0c11-4532-9314-b1ec6b93b7ef&appId=92a2f8ff-cc12-4feb-acc6-59ba0c792829&autoAuth=true&ctid=e69af0f5-e703-4fdb-8a25-2d2a0d593c77"
-   target="_blank"
-   class="btn"
-   style="display: inline-block; background-color: #3b82f6; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; text-decoration: none; box-shadow: 0 0 10px rgba(91, 176, 255, 0.5);">
-   🔗 View Dashboard (Power BI Access Required)
-</a>
+    <a href="https://app.powerbi.com/reportEmbed?reportId=a32bd936-1d7c-46b1-81be-55cb214d6d27&appId=5fe91805-1a90-4e2c-ae69-744906077568&autoAuth=true&ctid=e69af0f5-e703-4fdb-8a25-2d2a0d593c77"
+      target="_blank"
+      class="btn"
+      style="background-color: #3b82f6;">
+      🔗 View Dashboard (Power BI Access Required)
+    </a>
 
     <hr>
 
     <h2>📈 Key KPIs</h2>
     <ul>
-      <li>Total Sales</li>
-      <li>Total Orders</li>
-      <li>Total Quantity Sold</li>
-      <li>MoM Growth in Sales, Orders, and Quantity</li>
+      <li><strong>Total Revenue</strong> – SUM of sales per product</li>
+      <li><strong>Quantity Sold</strong> – Total quantity sold across days</li>
+      <li><strong>Gross Profit</strong> – Revenue minus cost</li>
+      <li><strong>Top Product</strong> by Sales, Profit, Quantity</li>
     </ul>
 
-    <pre><code>-- Total Sales for May
-SELECT ROUND(SUM(unit_price * transaction_qty)) AS Total_Sales
-FROM coffee_shop_sales
-WHERE MONTH(transaction_date) = 5;
+    <pre><code>-- Total Revenue
+SELECT SUM(Sales) AS Total_Revenue FROM coffee_shop;
 
--- MoM Growth % for Sales
-SELECT 
-  MONTH(transaction_date) AS month,
-  ROUND(SUM(unit_price * transaction_qty)) AS total_sales,
-  (SUM(unit_price * transaction_qty) - 
-   LAG(SUM(unit_price * transaction_qty), 1) 
-   OVER (ORDER BY MONTH(transaction_date))) / 
-   LAG(SUM(unit_price * transaction_qty), 1) 
-   OVER (ORDER BY MONTH(transaction_date)) * 100 AS mom_increase_percentage
-FROM coffee_shop_sales
-WHERE MONTH(transaction_date) IN (4, 5)
-GROUP BY MONTH(transaction_date)
-ORDER BY MONTH(transaction_date);
+-- Total Quantity
+SELECT SUM(Quantity) AS Total_Quantity FROM coffee_shop;
+
+-- Gross Profit
+SELECT SUM(Profit) AS Total_Profit FROM coffee_shop;
+
+-- Top Products
+SELECT TOP 5 Product, SUM(Sales) AS Total_Sales
+FROM coffee_shop
+GROUP BY Product
+ORDER BY Total_Sales DESC;
 </code></pre>
 
     <h2>📊 Dashboard Features</h2>
     <ul>
-      <li>Calendar filter by month</li>
-      <li>Dynamic KPIs with MoM comparisons</li>
-      <li>Sales by weekday/weekend</li>
-      <li>Breakdown by store, category, and product type</li>
-      <li>Hourly and daily sales trends</li>
+      <li>Daily Sales and Quantity by Date</li>
+      <li>Profit Trend by Product and Category</li>
+      <li>Top 5 & Bottom 5 Products (Sales, Quantity, Profit)</li>
+      <li>Interactive Category-Level Filters</li>
     </ul>
-
-    <hr>
 
     <h2>💡 Business Insights</h2>
     <ul>
-      <li>Highest sales occur on weekends and during 8–10 AM</li>
-      <li>Most revenue comes from coffee-based drinks</li>
-      <li>Astoria and Hell’s Kitchen stores lead in sales</li>
-      <li>Consistent MoM growth observed for May vs April</li>
+      <li>Seasonal spikes visible during weekends</li>
+      <li>Pastries and Lattes have highest profit margins</li>
+      <li>Daily sales average around $1,000</li>
+      <li>Top 3 products contribute 40%+ of total revenue</li>
     </ul>
 
     <hr>
@@ -172,7 +151,7 @@ ORDER BY MONTH(transaction_date);
       <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/nikhil-c-993548151" target="_blank">linkedin.com/in/nikhil-c</a></li>
     </ul>
 
-    <a href="https://github.com/Niks23c/coffee-shop-sales-analysis" target="_blank" class="btn">🔗 View GitHub Repository</a>
+    <a href="https://github.com/Niks23c/Coffee_Shop_Sales_Analysis" target="_blank" class="btn">🔗 View GitHub Repository</a>
   </div>
 </body>
 </html>
