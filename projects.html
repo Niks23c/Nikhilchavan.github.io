@@ -71,7 +71,114 @@
       text-decoration: none;
       border-radius: 5px;
     }
-  </style>
+    #particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  background-color: #0f172a; /* optional: dark background fallback */
+}
+
+#projects {
+  position: relative;
+  z-index: 1;
+}
+    /* ---------- New Projects Section Styles (Dark + Filters + Animations) ---------- */
+  #projects {
+    background: #0f0f0f;
+    padding: 4rem 2rem;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #ffda77;
+  }
+
+  .filter-buttons {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .filter-btn {
+    background: transparent;
+    border: 2px solid #ffda77;
+    color: #ffda77;
+    padding: 10px 16px;
+    margin: 0 5px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    background: #ffda77;
+    color: #000;
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .project-card {
+    background: #1f1f1f;
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 0.8s forwards;
+  }
+
+  .project-card:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .project-card:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  .project-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+
+  .project-card h3 {
+    color: #ffda77;
+    font-size: 1.5rem;
+  }
+
+  .project-card p {
+    color: #ccc;
+  }
+
+  .project-card .btn {
+    background-color: #ffda77;
+    color: #000;
+    font-weight: bold;
+    border: none;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+ 
 </head>
 <body>
 
@@ -86,6 +193,7 @@
     <a href="#resume">Resume</a>
     <a href="#contact">Contact</a>
   </nav>
+<div id="particles-js"></div>
 
  <section id="projects">
   <div class="container">
@@ -154,6 +262,58 @@
     <a id="modalLive" href="#" target="_blank">🌐 Live Project</a>
   </div>
 </div>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  particlesJS("particles-js", {
+    "particles": {
+      "number": {
+        "value": 80,
+        "density": { "enable": true, "value_area": 800 }
+      },
+      "color": { "value": "#ffda77" },
+      "shape": {
+        "type": "circle",
+        "stroke": { "width": 0, "color": "#000000" }
+      },
+      "opacity": {
+        "value": 0.3,
+        "random": true,
+        "anim": { "enable": false }
+      },
+      "size": {
+        "value": 3,
+        "random": true
+      },
+      "line_linked": {
+        "enable": true,
+        "distance": 120,
+        "color": "#ffda77",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 2,
+        "direction": "none",
+        "random": false,
+        "straight": false,
+        "out_mode": "out",
+        "bounce": false
+      }
+    },
+    "interactivity": {
+      "events": {
+        "onhover": { "enable": true, "mode": "grab" },
+        "onclick": { "enable": true, "mode": "push" }
+      },
+      "modes": {
+        "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } },
+        "push": { "particles_nb": 4 }
+      }
+    },
+    "retina_detect": true
+  });
+</script>
 
 </body>
 </html>
