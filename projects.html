@@ -3,335 +3,209 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Projects | Nikhil Chavan</title>
+  <title>Projects | Your Name</title>
+  <link rel="stylesheet" href="styles.css"/>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background: transparent;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f0f;
       color: #fff;
+      overflow-x: hidden;
     }
 
-    header {
-      background-color: rgba(31, 41, 55, 0.9);
-      color: white;
-      padding: 2rem;
+    h1 {
       text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-
-    nav {
-      text-align: center;
-      background: rgba(17, 24, 39, 0.9);
-      padding: 1rem;
-      position: relative;
-      z-index: 2;
-    }
-
-    nav a {
-      color: #d1d5db;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: #facc15;
-    }
-
-    #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      top: 0;
-      left: 0;
-      background-color: #0f172a;
-    }
-
-    #projects {
-      position: relative;
-      z-index: 1;
-      background: transparent;
-      padding: 4rem 2rem;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 2rem;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
+      margin-top: 2rem;
       color: #ffda77;
     }
 
-    .filter-buttons {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .filter-btn {
-      background: transparent;
-      border: 2px solid #ffda77;
-      color: #ffda77;
-      padding: 10px 16px;
-      margin: 0 5px;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-
-    .filter-btn:hover,
-    .filter-btn.active {
-      background: #ffda77;
-      color: #000;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+    .projects-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 2rem;
     }
 
     .project-card {
-      background: rgba(31, 31, 31, 0.85);
-      padding: 1.5rem;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      opacity: 0;
-      transform: translateY(50px);
-      animation: fadeInUp 0.8s forwards;
+      background: #1e1e1e;
+      border-radius: 12px;
+      overflow: hidden;
+      width: 300px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      border: 2px solid #ffda77;
     }
 
-    .project-card:nth-child(2) { animation-delay: 0.2s; }
-    .project-card:nth-child(3) { animation-delay: 0.4s; }
+    .project-card:hover {
+      transform: scale(1.05);
+    }
 
     .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .project-card h3 {
+      padding: 1rem;
+      font-size: 1.2rem;
+      margin: 0;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      background-color: rgba(0, 0, 0, 0.85);
+    }
+
+    .modal-content {
+      background-color: #1e1e1e;
+      margin: 5% auto;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 800px;
+      color: #fff;
+      position: relative;
+    }
+
+    .modal-content img {
       width: 100%;
       border-radius: 10px;
       margin-bottom: 1rem;
     }
 
-    .project-card h3 {
+    .modal-content h3 {
       color: #ffda77;
-      font-size: 1.5rem;
+      margin-top: 0;
     }
 
-    .project-card p {
+    .modal-content p {
+      margin: 1rem 0;
+      line-height: 1.6;
       color: #ccc;
     }
 
-    .btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 10px 20px;
-      background-color: #ffda77;
+    .modal-buttons {
+      margin-top: 1.5rem;
+    }
+
+    .modal-buttons .btn {
+      margin-right: 1rem;
+      background: #ffda77;
       color: #000;
+      padding: 10px 16px;
+      border-radius: 6px;
       text-decoration: none;
-      border-radius: 5px;
       font-weight: bold;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Modal Styling */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.85);
-      padding-top: 60px;
-    }
-
-    .modal-content {
-      background-color: #1f1f1f;
-      margin: auto;
-      padding: 2rem;
-      border: 1px solid #888;
-      width: 90%;
-      max-width: 800px;
-      border-radius: 12px;
-      color: #fff;
-      text-align: center;
-    }
-
-    .modal-content img {
-      width: 100%;
-      max-height: 400px;
-      object-fit: contain;
-      border-radius: 8px;
-      margin-bottom: 1rem;
     }
 
     .close {
-      color: #aaa;
-      float: right;
+      position: absolute;
+      top: 12px;
+      right: 20px;
       font-size: 28px;
-      font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-      color: #fff;
-      text-decoration: none;
       cursor: pointer;
+      color: #fff;
     }
   </style>
 </head>
+
 <body>
+  <h1>My Projects</h1>
 
-<div id="particles-js"></div>
-
-<header>
-  <h1>📁 My Projects</h1>
-  <p>A collection of data analysis projects using Power BI, SQL, and Python</p>
-</header>
-
-<nav>
-  <a href="index.html">Home</a>
-  <a href="projects.html">Projects</a>
-  <a href="#resume">Resume</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<section id="projects">
-  <div class="container">
-    <h2 class="section-title">🚀 My Projects</h2>
-
-    <div class="filter-buttons">
-      <button class="filter-btn" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="powerbi">Power BI</button>
-      <button class="filter-btn" data-filter="sql">SQL</button>
-      <button class="filter-btn" data-filter="python">Python</button>
+  <div class="projects-grid">
+    <div class="project-card powerbi sql"
+      data-title="Pizza Sales Analysis"
+      data-desc="Quick summary."
+      data-img="assets/Pizza.gif"
+      data-github="https://github.com/yourusername/pizza-sales"
+      data-live="pizza.html">
+      <img src="assets/Pizza.gif" alt="Pizza Sales Analysis"/>
+      <h3>Pizza Sales Analysis</h3>
     </div>
 
-    <div class="project-grid">
+    <div class="project-card powerbi sql"
+      data-title="Coffee Shop Sales Analysis"
+      data-desc="Quick summary."
+      data-img="assets/coffee.gif"
+      data-github="https://github.com/yourusername/coffee-shop-sales"
+      data-live="coffee.html">
+      <img src="assets/coffee.gif" alt="Coffee Shop Sales"/>
+      <h3>Coffee Shop Sales Analysis</h3>
+    </div>
 
-      <div class="project-card powerbi sql"
-        data-title="Pizza Sales Analysis"
-        data-desc="Power BI dashboard exploring pizza orders, revenue, and top-selling products using SQL."
-        data-img="assets/Pizza.gif"
-        data-github="https://github.com/yourname/pizza-sales"
-        data-live="pizza.html">
-        <img src="assets/Pizza.gif" alt="Pizza Sales Project">
-        <h3>🍕 Pizza Sales Analysis</h3>
-        <p>Power BI | SQL</p>
-      </div>
-
-      <div class="project-card powerbi sql"
-        data-title="Coffee Shop Sales Analysis"
-        data-desc="SQL and Power BI dashboard showing KPIs, growth, and customer trends in a coffee shop."
-        data-img="assets/Coffeeshop.gif"
-        data-github="https://github.com/yourname/coffee-shop"
-        data-live="coffee.html">
-        <img src="assets/Coffeeshop.gif" alt="Coffee Shop Project">
-        <h3>☕ Coffee Shop Sales Analysis</h3>
-        <p>Power BI | SQL</p>
-      </div>
-
-      <div class="project-card powerbi"
-        data-title="Bank Customer Churn Analysis"
-        data-desc="Analyzed churn trends across customer demographics using Power BI to drive actionable retention insights."
-        data-img="assets/BankChurn.gif"
-        data-github="https://github.com/yourname/bank-churn"
-        data-live="bank.html">
-        <img src="assets/BankChurn.gif" alt="Bank Churn Project">
-        <h3>🏦 Bank Churn Analysis</h3>
-        <p>Power BI</p>
-      </div>
-
+    <div class="project-card powerbi"
+      data-title="Bank Customer Churn Analysis"
+      data-desc="Quick summary."
+      data-img="assets/churn.gif"
+      data-github="https://github.com/yourusername/bank-churn-analysis"
+      data-live="churn.html">
+      <img src="assets/churn.gif" alt="Churn Analysis"/>
+      <h3>Bank Customer Churn Analysis</h3>
     </div>
   </div>
-</section>
 
-<!-- Modal -->
-<div id="projectModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h3 id="modalTitle"></h3>
-    <img id="modalImage" src="" alt="Project Preview">
-    <p id="modalDesc"></p>
-    <a id="modalGitHub" href="#" target="_blank">🔗 GitHub</a> |
-    <a id="modalLive" href="#" target="_blank">🌐 Live Project</a>
+  <!-- Modal -->
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img id="modalImage" src="" alt="Project Preview" />
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+      <div class="modal-buttons">
+        <a id="modalGitHub" href="#" target="_blank" class="btn">🔗 GitHub</a>
+        <a id="modalLive" href="#" target="_blank" class="btn">🌐 Live Project</a>
+      </div>
+    </div>
   </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script>
-  particlesJS("particles-js", {
-    "particles": {
-      "number": { "value": 80, "density": { "enable": true, "value_area": 800 }},
-      "color": { "value": "#ffda77" },
-      "shape": { "type": "circle" },
-      "opacity": { "value": 0.3, "random": true },
-      "size": { "value": 3, "random": true },
-      "line_linked": {
-        "enable": true,
-        "distance": 120,
-        "color": "#ffda77",
-        "opacity": 0.4,
-        "width": 1
-      },
-      "move": {
-        "enable": true,
-        "speed": 2,
-        "direction": "none",
-        "random": false,
-        "straight": false,
-        "out_mode": "out"
-      }
-    },
-    "interactivity": {
-      "events": {
-        "onhover": { "enable": true, "mode": "grab" },
-        "onclick": { "enable": true, "mode": "push" }
-      },
-      "modes": {
-        "grab": { "distance": 140, "line_linked": { "opacity": 0.5 }},
-        "push": { "particles_nb": 4 }
-      }
-    },
-    "retina_detect": true
-  });
+  <script>
+    const modal = document.getElementById("projectModal");
+    const modalImage = document.getElementById("modalImage");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDesc = document.getElementById("modalDesc");
+    const modalGitHub = document.getElementById("modalGitHub");
+    const modalLive = document.getElementById("modalLive");
+    const closeModal = document.querySelector(".close");
 
-  // Modal Logic
-  const cards = document.querySelectorAll('.project-card');
-  const modal = document.getElementById('projectModal');
-  const closeBtn = modal.querySelector('.close');
+    const projectCards = document.querySelectorAll(".project-card");
 
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      document.getElementById('modalTitle').innerText = card.dataset.title;
-      document.getElementById('modalDesc').innerText = card.dataset.desc;
-      document.getElementById('modalImage').src = card.dataset.img;
-      document.getElementById('modalGitHub').href = card.dataset.github;
-      document.getElementById('modalLive').href = card.dataset.live;
-      modal.style.display = 'block';
+    const descriptions = {
+      "Pizza Sales Analysis": "This Power BI dashboard provides a deep dive into pizza sales data. It includes metrics like revenue by category, top-selling pizzas, and hourly demand. The data was cleaned using SQL, and insights were visualized using interactive charts and KPIs to support inventory and marketing decisions.",
+      "Coffee Shop Sales Analysis": "This project tracks customer trends, revenue growth, and product performance for a fictional coffee shop. Data was analyzed in SQL and visualized in Power BI to deliver business-ready insights for stakeholders. The dashboard uses slicers, KPIs, and custom visuals.",
+      "Bank Customer Churn Analysis": "In this Power BI project, we analyzed customer churn behavior using demographic and transactional data. Key insights include which segments are most likely to churn and how to retain them using actionable strategies like loyalty programs."
+    };
+
+    projectCards.forEach(card => {
+      card.addEventListener("click", () => {
+        const title = card.getAttribute("data-title");
+        const desc = card.getAttribute("data-desc");
+        const img = card.getAttribute("data-img");
+        const github = card.getAttribute("data-github");
+        const live = card.getAttribute("data-live");
+
+        modalImage.src = img;
+        modalTitle.textContent = title;
+        modalDesc.textContent = descriptions[title] || desc;
+        modalGitHub.href = github;
+        modalLive.href = live;
+
+        modal.style.display = "block";
+      });
     });
-  });
 
-  closeBtn.onclick = () => modal.style.display = 'none';
-  window.onclick = e => { if (e.target == modal) modal.style.display = 'none'; };
-</script>
-
+    closeModal.onclick = () => modal.style.display = "none";
+    window.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
+  </script>
 </body>
 </html>
