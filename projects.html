@@ -87,38 +87,73 @@
     <a href="#contact">Contact</a>
   </nav>
 
+ <section id="projects">
   <div class="container">
-    <div class="project-grid">
+    <h2 class="section-title">🚀 My Projects</h2>
+
+    <!-- Filter Buttons -->
+    <div class="filter-buttons">
+      <button class="filter-btn" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="powerbi">Power BI</button>
+      <button class="filter-btn" data-filter="sql">SQL</button>
+      <button class="filter-btn" data-filter="python">Python</button>
+    </div>
+
+    <!-- Project Cards Grid -->
+    <div class="projects-grid">
 
       <!-- Pizza Project -->
-      <div class="project-card">
+      <div class="project-card powerbi sql"
+        data-title="Pizza Sales Analysis"
+        data-desc="Power BI dashboard exploring pizza orders, revenue, and top-selling products using SQL."
+        data-img="assets/Pizza.gif"
+        data-github="https://github.com/yourname/pizza-sales"
+        data-live="pizza.html">
         <img src="assets/Pizza.gif" alt="Pizza Sales Project GIF">
         <h3>🍕 Pizza Sales Analysis</h3>
-        <p>Power BI dashboard exploring pizza orders, revenue, and top-selling products using SQL.</p>
-        <a href="pizza.html" class="btn">View Project</a>
+        <p>Power BI | SQL</p>
       </div>
 
-      <!-- Coffee Project -->
-      <div class="project-card">
+      <!-- Coffee Shop Project -->
+      <div class="project-card powerbi sql"
+        data-title="Coffee Shop Sales Analysis"
+        data-desc="SQL and Power BI dashboard showing KPIs, growth, and customer trends in a coffee shop."
+        data-img="assets/Coffeeshop.gif"
+        data-github="https://github.com/yourname/coffee-shop"
+        data-live="coffee.html">
         <img src="assets/Coffeeshop.gif" alt="Coffee Shop Project GIF">
         <h3>☕ Coffee Shop Sales Analysis</h3>
-        <p>SQL and Power BI dashboard showing KPIs, growth, and customer trends in a coffee shop.</p>
-        <a href="coffee.html" class="btn">View Project</a>
+        <p>Power BI | SQL</p>
       </div>
 
+      <!-- Bank Churn Project -->
+      <div class="project-card powerbi"
+        data-title="Bank Customer Churn Analysis"
+        data-desc="Analyzed churn trends across customer demographics using Power BI to drive actionable retention insights."
+        data-img="assets/BankChurn.gif"
+        data-github="https://github.com/yourname/bank-churn"
+        data-live="bank.html">
+        <img src="assets/BankChurn.gif" alt="Bank Churn Dashboard GIF">
+        <h3>🏦 Bank Churn Analysis</h3>
+        <p>Power BI</p>
+      </div>
 
-        <!-- Bank Churn Project -->
-  <div class="project-card">
-    <img src="assets/BankChurn.gif" alt="Bank Churn Dashboard GIF">
-    <h3>🏦 Bank Customer Churn Analysis</h3>
-    <p>Analyzed churn trends across customer demographics using Power BI to drive actionable retention insights.</p>
-    <a href="bank.html" class="btn">View Project</a>
-  </div>
-
-      <!-- Add more project cards below as needed -->
-
+      <!-- Add more projects similarly -->
     </div>
   </div>
+</section>
+
+<!-- Modal Popup -->
+<div id="projectModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3 id="modalTitle"></h3>
+    <img id="modalImage" src="" alt="Project Preview">
+    <p id="modalDesc"></p>
+    <a id="modalGitHub" href="#" target="_blank">🔗 GitHub</a> |
+    <a id="modalLive" href="#" target="_blank">🌐 Live Project</a>
+  </div>
+</div>
 
 </body>
 </html>
