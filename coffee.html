@@ -59,6 +59,12 @@
       border-top: 1px solid #ccc;
       margin: 2rem 0;
     }
+    .report-wrapper iframe {
+  border-radius: 12px;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.08);
+  margin-top: 1.5rem;
+}
+
   </style>
 </head>
 <body>
@@ -85,11 +91,26 @@
 
     <hr>
 
-    <h2>📊 Dashboard Preview</h2>
-    <img src="assets/Coffeeshop.gif" alt="Coffee Shop Dashboard GIF">
-    <img src="assets/Coffee1.jpg" alt="Coffee Dashboard Screenshot 1">
-    <img src="assets/Coffee2.jpg" alt="Coffee Dashboard Screenshot 2">
-    <img src="assets/Coffee3.jpg" alt="Coffee Dashboard Screenshot 3">
+<h2 style="color: #facc15; font-size: 1.8rem;">📊 Explore the Live Dashboard</h2>
+<p style="color: #ccc;">
+  Dive into the fully interactive Power BI report below. Click the fullscreen icon 🔳 to explore filters, KPIs, and insights in detail.
+</p>
+
+<!-- GIF demo -->
+<img src="assets/Coffeeshop.gif" alt="Coffee Shop Dashboard Demo GIF" style="border-radius: 10px; width: 100%; margin-bottom: 1rem; box-shadow: 0 0 12px rgba(255,255,255,0.08);" />
+
+<!-- Embedded Power BI report -->
+<div class="report-wrapper">
+  <iframe 
+    title="Coffee Shop Sales Dashboard"
+    width="100%" 
+    height="600" 
+    src="https://app.powerbi.com/reportEmbed?reportId=fdf6203e-0c11-4532-9314-b1ec6b93b7ef&appId=92a2f8ff-cc12-4feb-acc6-59ba0c792829&autoAuth=true&ctid=e69af0f5-e703-4fdb-8a25-2d2a0d593c77" 
+    frameborder="0" 
+    allowFullScreen="true">
+  </iframe>
+</div>
+
 
     <hr>
 
