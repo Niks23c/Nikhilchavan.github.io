@@ -2,69 +2,117 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Coffee Shop Sales Analysis | Nikhil Chavan</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
       line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    #particles-js {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
     }
     .container {
       max-width: 1000px;
       margin: auto;
-      padding: 2rem;
-      background: white;
+      padding: 3rem 2rem;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1.2s ease-in-out;
     }
     h1, h2, h3 {
-      color: #1f2937;
+      color: #facc15;
     }
     img {
       max-width: 100%;
       border-radius: 10px;
-      margin: 1rem 0;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin: 1.5rem 0;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
     }
     a {
-      color: #007bff;
+      color: #3b82f6;
       text-decoration: none;
     }
     a:hover {
       text-decoration: underline;
     }
     ul {
-      padding-left: 1.2rem;
+      padding-left: 1.5rem;
     }
     .btn {
       display: inline-block;
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      background-color: #1f2937;
+      margin-top: 1.5rem;
+      padding: 12px 24px;
+      background-color: #3b82f6;
       color: white;
-      font-weight: 600;
-      border-radius: 8px;
       text-decoration: none;
-      box-shadow: 0 0 10px rgba(91, 176, 255, 0.5);
+      border-radius: 8px;
+      font-weight: bold;
+      transition: transform 0.3s ease, background 0.3s;
+      box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      background-color: #2563eb;
     }
     pre {
-      background: #f0f0f0;
+      background: #1e293b;
+      color: #e2e8f0;
       padding: 1rem;
       overflow-x: auto;
       border-radius: 8px;
-      margin: 1rem 0;
+      margin: 1.5rem 0;
     }
     hr {
       border: none;
-      border-top: 1px solid #ccc;
+      border-top: 1px solid #475569;
       margin: 2rem 0;
+    }
+    .nav {
+      text-align: right;
+      margin-bottom: 1rem;
+    }
+    .nav a {
+      background: #facc15;
+      color: #1e293b;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .nav a:hover {
+      background: #eab308;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div id="particles-js"></div>
+
+  <div class="container animate__animated animate__fadeInUp">
+    <div class="nav">
+      <a href="https://niks23c.github.io/Nikhilchavan.github.io/">🏠 Home</a>
+    </div>
+
     <h1>☕ Coffee Shop Sales Analysis – SQL + Power BI</h1>
     <p>This project analyzes the daily and product-level performance of a coffee shop using Power BI and SQL. The analysis uncovers trends in sales, top-performing products, and customer behavior, providing actionable business insights.</p>
 
@@ -87,16 +135,13 @@
 
     <hr>
 
-    <h2 style="color: #facc15; font-size: 1.8rem;">📊 Dashboard Preview</h2>
+    <h2 style="color: #facc15;">📊 Dashboard Preview</h2>
     <img src="assets/Coffee.gif" alt="Coffee Shop Sales Dashboard GIF" />
     <img src="assets/Coffee1.png" alt="Coffee Screenshot 1" />
     <img src="assets/Coffee2.png" alt="Coffee Screenshot 2" />
     <img src="assets/Coffee3.png" alt="Coffee Screenshot 3" />
 
-    <a href="https://app.powerbi.com/reportEmbed?reportId=a32bd936-1d7c-46b1-81be-55cb214d6d27&appId=5fe91805-1a90-4e2c-ae69-744906077568&autoAuth=true&ctid=e69af0f5-e703-4fdb-8a25-2d2a0d593c77"
-      target="_blank"
-      class="btn"
-      style="background-color: #3b82f6;">
+    <a href="https://app.powerbi.com/reportEmbed?reportId=a32bd936-1d7c-46b1-81be-55cb214d6d27&appId=5fe91805-1a90-4e2c-ae69-744906077568&autoAuth=true&ctid=e69af0f5-e703-4fdb-8a25-2d2a0d593c77" target="_blank" class="btn">
       🔗 View Dashboard (Power BI Access Required)
     </a>
 
@@ -153,5 +198,9 @@ ORDER BY Total_Sales DESC;
 
     <a href="https://github.com/Niks23c/Coffee_Shop_Sales_Analysis" target="_blank" class="btn">🔗 View GitHub Repository</a>
   </div>
+
+  <script>
+    particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.json');
+  </script>
 </body>
 </html>
