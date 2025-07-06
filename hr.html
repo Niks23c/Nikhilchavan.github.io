@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HR Analytics | Nikhil Chavan</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    #particles-js {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 3rem 2rem;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1.2s ease-in-out;
+    }
+    h1, h2, h3 {
+      color: #facc15;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+    }
+    a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 12px 24px;
+      background-color: #3b82f6;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: transform 0.3s ease, background 0.3s;
+      box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      background-color: #2563eb;
+    }
+    pre {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 1rem;
+      overflow-x: auto;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #475569;
+      margin: 2rem 0;
+    }
+    .nav {
+      text-align: right;
+      margin-bottom: 1rem;
+    }
+    .nav a {
+      background: #facc15;
+      color: #1e293b;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .nav a:hover {
+      background: #eab308;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <div class="container animate__animated animate__fadeInUp">
+    <div class="nav">
+      <a href="index.html">🏠 Home</a>
+      <a href="projects.html" style="margin-left: 12px;">← Back to Projects</a>
+    </div>
+
+    <h1>👥 HR Analytics Dashboard – Power BI</h1>
+    <p>This project provides a comprehensive overview of an organization's workforce using Power BI. The analysis includes attrition trends, employee demographics, job satisfaction, and departmental breakdowns to aid in strategic HR decision-making.</p>
+
+    <hr>
+
+    <h2>📌 Project Objective</h2>
+    <ul>
+      <li>Identify employee attrition patterns and reasons</li>
+      <li>Analyze job role distribution and department strength</li>
+      <li>Understand relationships between satisfaction, salary, and attrition</li>
+      <li>Support data-driven HR planning and retention strategies</li>
+    </ul>
+
+    <h2>🔧 Tools & Technologies Used</h2>
+    <ul>
+      <li>Power BI</li>
+      <li>Excel (Data Preparation)</li>
+    </ul>
+
+    <hr>
+
+    <h2 style="color: #facc15;">📊 Dashboard Preview</h2>
+    <img src="assets/HR_1.jpg" alt="HR Dashboard Screenshot 1" />
+    <img src="assets/HR_2.jpg" alt="HR Dashboard Screenshot 2" />
+    <img src="assets/HR_3.jpg" alt="HR Dashboard Screenshot 3" />
+    <img src="assets/HR_4.jpg" alt="HR Dashboard Screenshot 4" />
+
+    <a href="<iframe title="Hr_data_Analysis" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=93172283-26fa-46d7-8095-745258ca4edb&appId=e908c91a-399a-4928-94a5-ba935d833d62&autoAuth=true&ctid=e69af0f5-e703-4fdb-8a25-2d2a0d593c77" frameborder="0" allowFullScreen="true"></iframe>
+      🔗 View Dashboard (Power BI Access Required)
+    </a>
+
+    <hr>
+
+    <h2>📈 Key KPIs (via DAX)</h2>
+    <ul>
+      <li><strong>Total Employees</strong> – COUNT of unique Employee IDs</li>
+      <li><strong>Attrition Rate</strong> – % of employees who left</li>
+      <li><strong>Average Age</strong> – Mean age of current workforce</li>
+      <li><strong>Average Monthly Income</strong></li>
+    </ul>
+
+    <pre><code>-- Total Employees
+Total Employees = DISTINCTCOUNT(HR_Data[EmployeeID])
+
+-- Attrition Rate
+Attrition Rate = 
+DIVIDE(
+  CALCULATE(COUNT(HR_Data[Attrition]), HR_Data[Attrition] = "Yes"),
+  COUNTROWS(HR_Data)
+)
+
+-- Average Age
+Average Age = AVERAGE(HR_Data[Age])
+
+-- Avg Monthly Income
+Avg Monthly Income = AVERAGE(HR_Data[MonthlyIncome])
+</code></pre>
+
+    <h2>📊 Dashboard Features</h2>
+    <ul>
+      <li>Interactive slicers by Department, Gender, and Job Role</li>
+      <li>Bar and donut charts for attrition & demographics</li>
+      <li>Detailed insights by Education Field and Satisfaction Level</li>
+      <li>KPI cards for real-time workforce metrics</li>
+    </ul>
+
+    <h2>💡 Business Insights</h2>
+    <ul>
+      <li>Attrition higher among employees aged 30–40</li>
+      <li>Job satisfaction strongly correlated with retention</li>
+      <li>Sales and HR departments showed higher turnover</li>
+      <li>Employees with longer tenure had better retention rates</li>
+    </ul>
+
+    <hr>
+
+    <h2>📬 Contact</h2>
+    <ul>
+      <li><strong>Name:</strong> Nikhil Chavan</li>
+      <li><strong>Email:</strong> <a href="mailto:nikhilcaptain4@gmail.com">nikhilcaptain4@gmail.com</a></li>
+      <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/nikhil-c-993548151" target="_blank">linkedin.com/in/nikhil-c</a></li>
+    </ul>
+
+    <a href="https://github.com/Niks23c/hr-analytics-powerbi" target="_blank" class="btn">🔗 View GitHub Repository</a>
+  </div>
+
+  <script>
+    particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.json');
+  </script>
+</body>
+</html>
