@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amazon Sales Analysis</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white">
+
+  <!-- Header --> 
+  <header class="relative text-center py-6 bg-indigo-600 text-white shadow-md">
+    <h1 class="text-3xl font-bold">🛒 Amazon Sales Analysis (SQL Project)</h1>
+    <div class="absolute top-6 right-6 space-x-2">
+      <a href="index.html" class="bg-white dark:bg-gray-800 text-indigo-600 dark:text-white px-4 py-2 rounded shadow hover:bg-indigo-100 transition">🏠 Home</a>
+      <a href="projects.html" class="bg-white dark:bg-gray-800 text-indigo-600 dark:text-white px-4 py-2 rounded shadow hover:bg-indigo-100 transition">📂 Projects</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="p-6 max-w-5xl mx-auto space-y-10">
+    
+    <!-- Problem Statement -->
+    <section class="reveal fade-in-up">
+      <h2 class="text-2xl font-semibold text-indigo-600">🧩 Problem Statement</h2>
+      <p>
+        Amazon wants to better understand its transactional retail data to improve sales, customer retention, and operational efficiency.
+        The goal of this project is to use <strong>SQL-only</strong> techniques to:
+      </p>
+      <ul class="list-disc ml-6 mt-2">
+        <li>Create new features from the raw data</li>
+        <li>Explore data patterns across cities, product lines, and customer segments</li>
+        <li>Generate actionable business insights</li>
+      </ul>
+    </section>
+
+    <!-- Dataset Description -->
+    <section class="reveal fade-in-up">
+      <h2 class="text-2xl font-semibold text-indigo-600">📁 Dataset Description</h2>
+      <ul class="list-disc ml-6">
+        <li><strong>Source:</strong> Simulated Amazon retail sales data</li>
+        <li><strong>Size:</strong> 1,000+ rows, 17 columns</li>
+        <li><strong>Key Fields:</strong> Invoice ID, Branch, City, Customer Type, Gender, Product Line, Unit Price, Quantity, Total, COGS, Tax5, Date, Time, Payment Method, Rating</li>
+      </ul>
+    </section>
+
+    <!-- Tools -->
+    <section class="reveal fade-in-up">
+      <h2 class="text-2xl font-semibold text-indigo-600">🛠️ Tools & Technologies</h2>
+      <p><strong>Tools:</strong> MySQL / SQL</p>
+      <p><strong>SQL Techniques:</strong> GROUP BY, ORDER BY, CASE, RANK(), ROW_NUMBER(), CTEs, JOINs, Window Functions, ALTER, UPDATE, IS NULL</p>
+    </section>
+
+    <!-- Feature Engineering -->
+    <section class="reveal fade-in-up">
+      <h2 class="text-2xl font-semibold text-indigo-600">🔧 Feature Engineering</h2>
+      <img src="Visuals/FeatureEngg.png" alt="Feature Engineering" class="rounded-xl shadow-lg my-4"/>
+      <ul class="list-disc ml-6">
+        <li>Extracted day and month from date</li>
+        <li>Created TimeOfDay column</li>
+        <li>Weekend flag added</li>
+        <li>Calculated gross margin and rating-based sales tag</li>
+      </ul>
+    </section>
+
+    <!-- EDA -->
+    <section class="reveal fade-in-up">
+      <h2 class="text-2xl font-semibold text-indigo-600">📊 Exploratory Data Analysis (EDA)</h2>
+      <p>Insights include:</p>
+      <ul class="list-disc ml-6">
+        <li>Top revenue-generating product line and cities</li>
+        <li>Customer type revenue impact</li>
+        <li>Branch-level above-average sales</li>
+        <li>Gender-product preference</li>
+        <li>Branch-wise peak rating days</li>
+      </ul>
+      <img src="Visuals/gender_top_products.png" class="rounded-xl my-4 shadow-md" alt="Gender-based Preferences" />
+      <img src="Visuals/branch_best_rating_day.png" class="rounded-xl shadow-md" alt="Branch-wise Ratings" />
+    </section>
+
+    <!-- Insights -->
+    <section class="reveal fade-in-up">
+      <h2 class="text-2xl font-semibold text-indigo-600">🏆 Key Insights & Recommendations</h2>
+      <ul class="list-disc ml-6">
+        <li>Food and Beverages is top-selling product line</li>
+        <li>Naypyitaw branch leads in revenue — potential for expansion</li>
+        <li>Member customers generate more sales — loyalty programs work</li>
+        <li>Gender-specific product strategies can improve sales</li>
+        <li>Optimize staffing based on branch-specific high-rating days</li>
+      </ul>
+    </section>
+
+    <!-- Project Visuals -->
+    <section class="reveal fade-in-up space-y-6">
+      <h2 class="text-2xl font-semibold text-indigo-600">📸 Project Visuals</h2>
+      <img src="Visuals/feature_engg_good_bad_sales.jpg" alt="Dashboard" class="rounded-xl shadow-lg"/>
+      <img src="Visuals/feature_engg_good_bad_sales.jpg" alt="KPIs" class="rounded-xl shadow-lg"/>
+      <img src="Visuals/City_wise_revenue.jpg" alt="Sales by City" class="rounded-xl shadow-lg"/>
+      <img src="Visuals/Highest_rating.jpg" alt="Sales by Time and Rating" class="rounded-xl shadow-lg"/>
+      <img src="Visuals/Highest_product_line.jpg" alt="Sales by Product Line" class="rounded-xl shadow-lg"/>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center text-sm py-6 text-gray-500 dark:text-gray-400">
+      Created by <strong>Nikhil</strong> | 
+      <a href="https://www.linkedin.com/in/nikhil-c-993548151" class="text-indigo-500 hover:underline">LinkedIn</a>
+    </footer>
+  </main>
+
+  <!-- Scroll Animation -->
+  <script>
+    ScrollReveal().reveal('.reveal', {
+      delay: 200,
+      distance: '20px',
+      origin: 'bottom',
+      duration: 800,
+      easing: 'ease-in-out'
+    });
+  </script>
+
+</body>
+</html>
