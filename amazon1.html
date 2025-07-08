@@ -1,1 +1,367 @@
-amazon2
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Amazon Sales Data Analysis (SQL Project) |  NIkhil Chavan </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    #particles-js {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 3rem 2rem;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1.2s ease-in-out;
+    }
+    h1, h2, h3, h4 {
+      color: #facc15;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+    }
+    a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 12px 24px;
+      background-color: #3b82f6;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: transform 0.3s ease, background 0.3s;
+      box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      background-color: #2563eb;
+    }
+    pre {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 1rem;
+      overflow-x: auto;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #475569;
+      margin: 2rem 0;
+    }
+    .nav {
+      text-align: right;
+      margin-bottom: 1rem;
+    }
+    .nav a {
+      background: #facc15;
+      color: #1e293b;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .nav a:hover {
+      background: #eab308;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <div class="container animate__animated animate__fadeInUp">
+<div class="nav">
+  <a href="index.html">🏠 Home</a>
+  <a href="projects.html" style="margin-left: 12px;">← Back to Projects</a>
+</div>
+
+    <h1>☕ 🛒 Amazon Sales Analysis (SQL Project) </h1>
+    <p>This project showcases a comprehensive analysis of Amazon sales transaction data using **pure SQL**.  
+        It involves **data cleaning**, **feature engineering**, and **exploratory data analysis (EDA)** to uncover key insights.</p>
+
+    <hr>
+
+    <h2>🧩 Problem Statement</h2>
+    <ul>
+      <li>Amazon wants to better understand its transactional retail data to improve sales, customer retention, and operational efficiency.</li>
+      <li>Customer behavior</li>
+      <li>Product performance</li>
+      <li>Regional trends</li>
+      <li>Business improvement opportunities</li>
+    </ul>
+
+        <h2>⚽ The goal of this project is to use **SQL-only** techniques to:</h2>
+    <ul>
+      <li>Create new features from the raw data</li>
+      <li>Explore data patterns across cities, product lines, and customer segments</li>
+      <li>Generate actionable business insights</li>
+    </ul>
+
+    
+    <h2>🔧 Tools & Technologies Used</h2>
+    <ul>
+      <li>SQL Server / MySQL</li>
+      <li>- SQL Features Used:
+              - GROUP BY, ORDER BY, CASE, RANK(), ROW_NUMBER(), CTEs, JOINs, Window Functions, Subquery</li>
+      <li>- Data cleaning via ALTER, UPDATE, IS NULL, and transformations</li>
+    </ul>
+
+    <h2>📁 Dataset Description</h2>
+<ul>
+  <li><strong>Source:</strong> Simulated Amazon retail sales data</li>
+  <li><strong>Size:</strong> 1,000+ rows and 17 columns</li>
+  <li><strong>Key Fields:</strong>
+    <ul>
+      <li><code>Invoice ID</code>, <code>Branch</code>, <code>City</code></li>
+      <li><code>Customer Type</code> (Member / Normal), <code>Gender</code></li>
+      <li><code>Product Line</code>, <code>Unit Price</code>, <code>Quantity</code>, <code>Total</code>, <code>COGS</code>, <code>Tax5</code></li>
+      <li><code>Date</code>, <code>Time</code>, <code>Payment Method</code></li>
+    </ul>
+  </li>
+</ul>
+
+    <h2>🧠 Feature Engineering (Using SQL Only)</h2>
+
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr style="background-color: #facc15; color: #000;">
+      <th>Feature</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>day_name</code></td>
+      <td>Extracted from <code>Date</code> to identify weekday patterns</td>
+    </tr>
+    <tr>
+      <td><code>month_name</code></td>
+      <td>Extracted from <code>Date</code> for monthly analysis</td>
+    </tr>
+    <tr>
+      <td><code>TimeOfDay</code></td>
+      <td>Categorized time into Morning, Afternoon, Evening</td>
+    </tr>
+    <tr>
+      <td><code>Rating_Sales</code></td>
+      <td>Total sales per rating value</td>
+    </tr>
+    <tr>
+      <td><code>Gross Margin</code></td>
+      <td>Profit estimation via <code>COGS</code> and tax</td>
+    </tr>
+    <tr>
+      <td><code>Weekend Flag</code></td>
+      <td>Created to compare weekday vs weekend sales</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>📷 Feature Engineering Visual</h4>
+<img src="assets/feature_engg_good_bad_sales.jpg" alt="Feature Engineering" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
+
+    <hr>
+
+<h2>📊 Exploratory Data Analysis (EDA)</h2>
+<p>A series of SQL queries were executed to answer key business questions and uncover trends from the dataset.</p>
+
+<!-- Q1 -->
+<h3>🔹 1. Which product line generates the highest revenue?</h3>
+<pre><code>SELECT ProductLine, SUM(Unit_Price * Quantity) AS Total_Sales 
+FROM Amazon
+GROUP BY ProductLine
+ORDER BY Total_Sales DESC 
+LIMIT 1;
+</code></pre>
+<h4>📊 Visual:</h4>
+<img src="assets/Highest_product_line.jpg" alt="Highest Revenue Product Line" />
+
+<h4>📌 Insight:</h4>
+<p><strong>Food and Beverages</strong> generated the highest revenue, making it a priority category for inventory and marketing.</p>
+
+<!-- Q2 -->
+<h3>🔹 2. Which city generates the highest revenue?</h3>
+<pre><code>SELECT City, SUM(Unit_Price * Quantity) AS Revenue 
+FROM Amazon
+GROUP BY City
+ORDER BY Revenue DESC 
+LIMIT 1;
+</code></pre>
+<h4>📊 Visual:</h4>
+<img src="assets/City_wise_revenue.jpg" alt="City-wise Revenue" />
+
+<h4>📌 Insight:</h4>
+<p><strong>Naypyitaw</strong> leads in revenue — highlighting potential for warehouse expansion and targeted regional ads.</p>
+
+<!-- Q3 -->
+<h3>🔹 3. Who are the top-performing customers by type?</h3>
+<pre><code>SELECT Cust_Type, SUM(Unit_Price * Quantity) AS Revenue 
+FROM Amazon
+GROUP BY Cust_Type
+ORDER BY Revenue DESC 
+LIMIT 1;
+</code></pre>
+<h4>📊 Visual:</h4>
+<img src="assets/Customer_type.jpg" alt="Customer Type Revenue" />
+
+<h4>📌 Insight:</h4>
+<p><strong>Members</strong> generate more revenue, validating the effectiveness of the loyalty program.</p>
+
+<!-- Q4 -->
+<h3>🔹 4. Which branches exceeded average product sales? (Using Subquery)</h3>
+<pre><code>SELECT Branch, SUM(Quantity) AS Total_Products_Sold 
+FROM Amazon
+GROUP BY Branch
+HAVING SUM(Quantity) > (
+  SELECT AVG(Total_Products)
+  FROM (
+    SELECT SUM(Quantity) AS Total_Products 
+    FROM Amazon 
+    GROUP BY Branch
+  ) AS Avg_Table
+);
+</code></pre>
+<h4>📊 Visual:</h4>
+<!-- Add image if available -->
+<!-- <img src="Visuals/Branch_Above_Average.jpg" alt="Branches Above Average Sales" /> -->
+
+<h4>📌 Insight:</h4>
+<p>Some branches significantly outperform others in product quantity sold — useful for resource allocation and marketing strategies.</p>
+
+<!-- Q5 -->
+<h3>🔹 5. What product lines are most preferred by gender? (Using CTE)</h3>
+<pre><code>WITH Ranking AS (
+  SELECT ProductLine, Gender, COUNT(Quantity) AS Frequency,
+         RANK() OVER (PARTITION BY Gender ORDER BY COUNT(Quantity) DESC) AS Rank
+  FROM Amazon
+  GROUP BY Gender, ProductLine
+)
+SELECT ProductLine, Gender, Frequency 
+FROM Ranking
+WHERE Rank = 1;
+</code></pre>
+<h4>📊 Visual:</h4>
+<img src="assets/Gender_influence.jpg" alt="Gender Influence on Product Line" />
+
+<h4>📌 Insight:</h4>
+<p><strong>Females</strong> prefer <em>Fashion Accessories</em>, while <strong>Males</strong> favor <em>Health and Beauty</em>.</p>
+
+<!-- Q6 -->
+<h3>🔹 6. Which day does each branch receive the best customer ratings?</h3>
+<pre><code>WITH Rankings AS (
+  SELECT Branch, DayName, AVG(Rating) AS Avg_Rating,
+         RANK() OVER (PARTITION BY Branch ORDER BY AVG(Rating) DESC) AS Rank
+  FROM Amazon
+  GROUP BY Branch, DayName
+)
+SELECT Branch, DayName, Avg_Rating 
+FROM Rankings
+WHERE Rank = 1;
+</code></pre>
+<h4>📊 Visual:</h4>
+<img src="assets/Highest_rating.jpg" alt="Highest Ratings by Branch and Day" />
+
+<h4>📌 Insight:</h4>
+<p>Ratings vary by weekday across branches — helpful for optimizing staffing and improving customer service.</p>
+
+<!-- Q7 - Feature Engineering -->
+<h3>🔹 7. Categorize each product line as “Good” or “Bad” based on average sales (Feature Engineering)</h3>
+<pre><code>SET @avg_sales = (SELECT AVG(Unit_Price * Quantity) FROM Amazon);
+
+ALTER TABLE Amazon ADD COLUMN Rating_Sales2 VARCHAR(25);
+
+UPDATE Amazon
+SET Rating_Sales2 =  
+  CASE
+    WHEN (Unit_Price * Quantity) > @avg_sales THEN 'Good' 
+    ELSE 'Bad' 
+  END;
+
+SELECT Branch, Rating_Sales2, 
+       RANK() OVER (PARTITION BY Branch ORDER BY Rating_Sales2) AS Rank_5 
+FROM Amazon;
+</code></pre>
+<h4>📊 Visual:</h4>
+<img src="assets/feature_engg_good_bad_sales.jpg" alt="Good vs Bad Product Line Sales" />
+
+<h4>📌 Insight:</h4>
+<p>Branches can be segmented by sales performance — enabling focused improvement on underperforming areas.</p>
+
+
+    <a href="https://app.powerbi.com/reportEmbed?reportId=a32bd936-1d7c-46b1-81be-55cb214d6d27&appId=5fe91805-1a90-4e2c-ae69-744906077568&autoAuth=true&ctid=e69af0f5-e703-4fdb-8a25-2d2a0d593c77" target="_blank" class="btn">
+      🔗 View Dashboard (Power BI Access Required)
+    </a>
+
+    <hr>
+      <h2>📈 Key KPIs</h2>
+    <ul>
+      <li><strong>Gender-Based Product Preferences:</strong> Ranked using SQL RANK() and ROW_NUMBER()</li>
+      <li><strong>Weekend vs Weekday Sales & Ratings:</strong> Derived using a computed weekend flag</li>
+      <li><strong>Payment Preferences by Gender:</strong> Normalized trends</li>
+      <li><strong>Time-based Performance:</strong> Morning vs Afternoon vs Evening</li>
+    </ul>
+
+    <h2> 📌 Key Business Recommendations</h2>
+    <ul>
+      <li>Focus marketing on Food and Beverages in Naypyitaw</li>
+      <li>Promote Health & Beauty to female customers via targeted ads</li>
+      <li>Optimize staffing based on branch-wise peak rating days</li>
+      <li>Maintain and expand loyalty programs, as Members yield more revenue</li>
+    </ul>
+
+    <hr>
+
+    <h2>📬 Contact</h2>
+    <ul>
+      <li><strong>Name:</strong> Nikhil Chavan</li>
+      <li><strong>Email:</strong> <a href="mailto:nikhilcaptain4@gmail.com">nikhilcaptain4@gmail.com</a></li>
+      <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/nikhil-c-993548151" target="_blank">linkedin.com/in/nikhil-c</a></li>
+    </ul>
+
+    <a href="https://github.com/Niks23c/SQL_PROJECT" target="_blank" class="btn">🔗 View GitHub Repository</a>
+  </div>
+
+  <script>
+    particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.json');
+  </script>
+</body>
+</html>
