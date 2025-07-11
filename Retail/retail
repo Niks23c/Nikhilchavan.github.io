@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🛍️ Retail Sales Analysis (Power BI Dashboard)| Nikhil Chavan</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    #particles-js {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 3rem 2rem;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1.2s ease-in-out;
+    }
+    h1, h2, h3 {
+      color: #facc15;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+    }
+    a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 12px 24px;
+      background-color: #3b82f6;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: transform 0.3s ease, background 0.3s;
+      box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      background-color: #2563eb;
+    }
+    pre {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 1rem;
+      overflow-x: auto;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #475569;
+      margin: 2rem 0;
+    }
+    .nav {
+      text-align: right;
+      margin-bottom: 1rem;
+    }
+    .nav a {
+      background: #facc15;
+      color: #1e293b;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .nav a:hover {
+      background: #eab308;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  
+
+  <div id="particles-js"></div>
+
+  <div class="container animate__animated animate__fadeInUp">
+<div class="nav">
+  <a href="index.html">🏠 Home</a>
+  <a href="projects.html" style="margin-left: 12px;">← Back to Projects</a>
+</div>
+
+    <h1>🛍️ Retail Sales Analysis (Power BI Dashboard)</h1>
+    <p>A one-page dynamic Power BI dashboard that delivers advanced retail sales insights using multiple data sources and 
+         row-level security (RLS) logic. Built to support Quarterly Business Review (QBR) presentations with deep visual storytelling.</p>
+
+    <hr>
+
+       <h2>❗ Problem Statement</h2>
+    <ul>
+      <li>Retail business has raw sales data but lacks clarity on performance insights</li>
+      <li>No visual system exists to monitor KPIs or identify sales patterns</li>
+      <li>Management struggles with understanding product and customer trends</li>
+      <li>Need for a centralized Power BI dashboard for actionable insights</li>
+      <li>Goal: Drive better decision-making in sales, marketing, and inventor</li>
+    </ul>
+
+       <h2>🧠 BRD Questions</h2>
+    <ul>
+      <li>What are the total sales, profit, and quantity sold over time?</li>
+      <li>Which products/categories generate the most revenue and profit?</li>
+      <li>How do sales differ by customer type (e.g., new vs returning)?</li>
+      <li>Which regions or cities perform best and worst in terms of sales?</li>
+      <li>What are the monthly/weekly/daily sales trends?</li>
+    </ul>
+
+
+    <h2>🧾 Project Objective</h2>
+    <ul>
+      <li>Analyze a retail store's' transactional sales data using Power BI</li>
+      <li>Identify trends in sales performance, customer behavior, and product categories</li>
+      <li>Create DAX measures to calculate KPIs like total sales, profit, and quantity sold</li>
+      <li>Develop interactive dashboards for dynamic filtering and visual exploration</li>
+      <li>Support data-driven decision-making in sales, marketing, and inventory</li>
+      <li>Highlight top-performing products, key regions, and customer segments</li>
+    </ul>
+
+ <h2>🔐 Row-Level Security (RLS)</h2>
+
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr style="background-color: #facc15; color: #000;">
+      <th>Role Name </th>
+      <th>Filter Column</th>
+      <th>Condition</th>
+      <th>Value</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Czech </code></td>
+      <td>Country</td>
+      <td>Equals </td>
+      <td>Czech Republic</td>
+      <td>✔️ Working correctly </td>
+    </tr>
+    <tr>
+      <td><code>Denmark</code></td>
+      <td>Country</td>
+      <td>Equals </td>
+      <td>Denmark</td>
+      <td>✔️ Working correctly </td>
+    </tr>
+    <tr>
+      <td><code>Germany</code></td>
+      <td>Country</td>
+      <td>Equals </td>
+      <td>Germany</td>
+      <td> ✔️ Valid and working </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>🔐 Row-Level Security (RLS)</h4>
+<img src="assets/Rls1.png" alt="RLS" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
+<img src="assets/Rls2.png" alt="RLS" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
+<img src="assets/Rls3.png" alt="RLS" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
+
+<h4>🔐 Dashboard View as Role </h4>
+<img src="assets/Denmarkview.png" alt="RLS" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
+
+
+    <h2 style="color: #facc15;">📊 Dashboard Preview</h2>
+    <p style="color: #cbd5e1;">
+     An interactive Power BI dashboard that visualizes sales, profit, customer trends, and product performance across regions and time.
+    </p>
+
+    <img src="dashboard.gif" alt="Retail Sales Dashboard GIF" />
+
+
+    <a href="https://app.powerbi.com/reportEmbed?reportId=409a0020-f3a9-418b-94db-61e464ac1bd8&appId=d22fc67a-c388-4da5-8a04-ee4d937c9785&autoAuth=true&ctid=e69af0f5-e703-4fdb-8a25-2d2a0d593c77"
+       target="_blank"
+       class="btn">
+       🔗 View Dashboard (Power BI Access Required)
+    </a>
+
+    <hr>
+
+    <h2>📌 Visual Highlights</h2>
+    <ul>
+      <li>- Quarterly Sales Growth (QoQ)</li>
+      <li>- Monthly Trend Analysis</li>
+      <li>- Product Drop/Increase Trends</li>
+      <li>- Interactive Scroll Navigation</li>
+    </ul>
+
+
+
+    <hr>
+
+    <h2>🧮 DAX Measures</h2>
+    <ul>
+      <li>-**Total Revenue** = Units × Retail Price  </li>
+      <li>- **Total Cost** = Units × Standard Cost  </li>
+      <li>- **Gross Profit** = Total Revenue − Total Cost  </li>
+      <li>- **MoM Growth %** = Gross Profit Change  </li>
+      <li>- **Average Sales/Day** = Revenue divided by active days  </li>
+      <li>- **QoQ Growth** (Time intelligence) </li>
+    </ul>
+
+    <hr>
+
+    <h2>🧰 Tools Used</h2>
+    <ul>
+      <li>- **Power BI Desktop** (DAX, RLS, Power Query)/li>
+      <li>- **Power Query** for data transformations</li>
+      <li>- **Star Schema** for data modeling/li>
+      <li>- **Excel & CSV** as data sources</li>
+    </ul>
+
+    <h2>📌 Key Insights</h2>
+    <ul>
+      <li>- **Power BI Desktop** (DAX, RLS, Power Query)/li>
+      <li>- **Power Query** for data transformations</li>
+      <li>- **Star Schema** for data modeling/li>
+      <li>- **Excel & CSV** as data sources</li>
+    </ul>
+    <hr>
+
+    <h2>📬 Contact</h2>
+    <ul>
+      <li><strong>Name:</strong> Nikhil Chavan</li>
+      <li><strong>Email:</strong> <a href="mailto:nikhilcaptain4@gmail.com">nikhilcaptain4@gmail.com</a></li>
+      <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/nikhil-c-993548151" target="_blank">linkedin.com/in/nikhil-c</a></li>
+    </ul>
+
+    <a href="https://github.com/Niks23c/Bank-Churn-Analysis" target="_blank" class="btn">🔗 View GitHub Repository</a>
+  </div>
+
+  <!-- Initialize Particle Background -->
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 70, density: { enable: true, value_area: 800 } },
+        color: { value: "#facc15" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: 3 },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#facc15",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: "none",
+          out_mode: "out"
+        }
+      },
+      interactivity: {
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" }
+        },
+        modes: {
+          repulse: { distance: 100 },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+</body>
+</html>
